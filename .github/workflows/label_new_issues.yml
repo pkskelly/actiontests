@@ -2,6 +2,17 @@ on:
   issues:
     types:
       - opened
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
+
       
 jobs:
   label_issue:
@@ -16,6 +27,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
+          
+      - name: Say Hello  
+        run: |
+          echo Hello $NAME!
+          echo -in $HOME
+        env:
+          NAME: ${{ github.event.inputs.name }}
+          HOME: ${{ github.event.inputs.home }}
           
  
     
