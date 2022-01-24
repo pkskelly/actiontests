@@ -14,8 +14,9 @@ jobs:
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
     
-      name: Echo event context 
+      - name: Echo event context 
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
+ 
