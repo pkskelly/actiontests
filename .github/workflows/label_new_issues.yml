@@ -12,12 +12,9 @@ jobs:
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
-    
-      - name: Echo event context 
-      - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
+          gh issue edit $ISSUE_URL --add-label "triage"
           echo $EVENT_CONTEXT
  
+    
