@@ -30,4 +30,4 @@ jobs:
     with:
       username: 'Pete'
     secrets:
-      envPAT: 'token'
+      token: 'token'
