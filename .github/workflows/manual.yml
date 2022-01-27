@@ -27,3 +27,6 @@ jobs:
  
   call-workflow-1-in-local-repo:
     uses: pkskelly/actiontests/.github/workflows/reusable.yml@main
+    with:
+      username: 'Pete'
+    
